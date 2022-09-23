@@ -9,9 +9,4 @@ public class DestroyObject : MonoBehaviour
     {
         Destroy(other.gameObject);
     }
-
-    private void Start()
-    {
-        Debug.Log("start");
-    }
 }
