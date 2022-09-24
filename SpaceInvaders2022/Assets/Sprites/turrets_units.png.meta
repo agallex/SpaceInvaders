@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8133eee06e56743ea8a6822a7e24e453
+guid: 80fbca4de3a78445cacb5a22a7d7d3d8
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -67,7 +67,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 256
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -141,13 +141,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: enemies and bullets_0
+      name: turrets_units_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 605
-        width: 116
-        height: 116
+        x: 2
+        y: 65
+        width: 60
+        height: 62
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -155,20 +155,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6410b330609043bf8c53e08e1856a7e
-      internalID: -527753588
+      spriteID: e416ae38026f249a7bb989a986cb5d5d
+      internalID: 1873222589
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemies and bullets_1
+      name: turrets_units_1
       rect:
         serializedVersion: 2
-        x: 137
-        y: 605
-        width: 116
-        height: 116
+        x: 67
+        y: 66
+        width: 58
+        height: 59
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -176,20 +176,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b599969341cf747fb8a22e3ab5dcbb20
-      internalID: 476182767
+      spriteID: 6d2b3bafd9065472eb5a5a7a00b43421
+      internalID: 540698629
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemies and bullets_2
+      name: turrets_units_2
       rect:
         serializedVersion: 2
-        x: 274
-        y: 605
-        width: 117
-        height: 116
+        x: 130
+        y: 65
+        width: 60
+        height: 62
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -197,20 +197,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 77c10306cc0884839ac30586490b9c0d
-      internalID: -767735138
+      spriteID: 781ae7fb0a8364a35a8f6b04af0a27bb
+      internalID: 993918248
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemies and bullets_3
+      name: turrets_units_3
       rect:
         serializedVersion: 2
-        x: 94
-        y: 262
-        width: 165
-        height: 76
+        x: 194
+        y: 64
+        width: 61
+        height: 63
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,20 +218,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 66779954da0784635942eb5aba440ee5
-      internalID: -577160031
+      spriteID: 05dd927b473fa42b0a7e2f604a3a1ba4
+      internalID: 612413056
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemies and bullets_4
+      name: turrets_units_4
       rect:
         serializedVersion: 2
-        x: 334
-        y: 217
-        width: 205
-        height: 241
+        x: 259
+        y: 66
+        width: 59
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -239,20 +239,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0cfb193ee9df6419e97725cf4f0f79e7
-      internalID: 1596870028
+      spriteID: 073418d58deca4d2f90a0e2a00679e55
+      internalID: 860959339
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemies and bullets_5
+      name: turrets_units_5
       rect:
         serializedVersion: 2
-        x: 595
-        y: 203
-        width: 210
-        height: 226
+        x: 6
+        y: 1
+        width: 52
+        height: 61
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -260,20 +260,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5410daf3740a942e48ac353ae1d2f770
-      internalID: 1055672476
+      spriteID: c3657d7f80f7e42779e35ffa4904f54c
+      internalID: 613396563
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemies and bullets_6
+      name: turrets_units_6
       rect:
         serializedVersion: 2
-        x: 704
-        y: 176
-        width: 12
-        height: 15
+        x: 66
+        y: 1
+        width: 61
+        height: 61
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -281,20 +281,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d6de151a36374acc8ae1eb3f1d1d937
-      internalID: 1607007128
+      spriteID: 261257fc23c3c4ba99ed713f199b6cee
+      internalID: -434545684
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemies and bullets_7
+      name: turrets_units_7
       rect:
         serializedVersion: 2
-        x: 717
-        y: 164
-        width: 13
-        height: 15
+        x: 130
+        y: 1
+        width: 60
+        height: 61
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -302,50 +302,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0bf9ad7e97bb247bcbcd2b12845a9201
-      internalID: -570989827
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemies and bullets_8
-      rect:
-        serializedVersion: 2
-        x: 693
-        y: 159
-        width: 12
-        height: 15
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 28d702aafa76248e09a3c3ef10df1115
-      internalID: 1642247084
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemies and bullets_9
-      rect:
-        serializedVersion: 2
-        x: 35
-        y: 0
-        width: 630
-        height: 108
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7c7908056f5224cf4b52396a9535d4fb
-      internalID: -560637888
+      spriteID: 994fc849272504545a175ff34afa1ed3
+      internalID: 1531950514
       vertices: []
       indices: 
       edges: []
@@ -361,16 +319,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      enemies and bullets_2: -767735138
-      enemies and bullets_9: -560637888
-      enemies and bullets_6: 1607007128
-      enemies and bullets_8: 1642247084
-      enemies and bullets_1: 476182767
-      enemies and bullets_3: -577160031
-      enemies and bullets_7: -570989827
-      enemies and bullets_4: 1596870028
-      enemies and bullets_5: 1055672476
-      enemies and bullets_0: -527753588
+      turrets_units_0: 1873222589
+      turrets_units_6: -434545684
+      turrets_units_7: 1531950514
+      turrets_units_1: 540698629
+      turrets_units_3: 612413056
+      turrets_units_5: 613396563
+      turrets_units_4: 860959339
+      turrets_units_2: 993918248
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

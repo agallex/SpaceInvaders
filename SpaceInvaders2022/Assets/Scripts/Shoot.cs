@@ -21,7 +21,9 @@ public class Shoot : MonoBehaviour
     IEnumerator Shooting()
     {
         StartCoroutineShooting = true;
-        Instantiate(bullet, transform.position, transform.rotation);
+        Vector3 playerPos = transform.position;
+        Vector3 spawnPos = new Vector3(playerPos.x, playerPos.y + 0.4f, playerPos.z);
+        Instantiate(bullet, spawnPos, transform.rotation);
         yield return new WaitForSeconds(TimeShoot);
         StartCoroutineShooting = false;
     }
