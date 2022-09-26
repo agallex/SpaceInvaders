@@ -3,7 +3,7 @@ using UnityEngine;
 public class MovePlayer : MonoBehaviour
 {
     public int speedSheep = 10;
-    private readonly float _maxX = 3.5f;
+    private readonly float _maxX = 3.2f;
     void Start() 
     {
         transform.position = new Vector3(0, -4, 0);

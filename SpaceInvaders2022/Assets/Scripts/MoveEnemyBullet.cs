@@ -1,18 +1,20 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class EnemiesAI : MonoBehaviour
+public class MoveEnemyBullet : MonoBehaviour
 {
+    public int speedBullet = 7;
+    // Update is called once per frame
+    void Update()
+    {
+        transform.Translate(Vector3.down * speedBullet * Time.deltaTime);
+    }
     
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("PlayerBullet"))
         {
-            ++SpawnEnemies.Score;
-            --SpawnEnemies.CountEnemy;
             Destroy(other.gameObject);
             Destroy(gameObject);
         }
@@ -21,10 +23,11 @@ public class EnemiesAI : MonoBehaviour
         {
             Debug.Log("Lose");
         }
-        
+
         if (other.gameObject.CompareTag(("RedZone")))
         {
             Destroy(gameObject);
         }
+        
     }
 }

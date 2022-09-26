@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class MoveBullet : MonoBehaviour
 {
-    public int speedBullet = 10;
+    public int speedBullet = 7;
     // Update is called once per frame
     void Update()
     {
-        transform.position += new Vector3(0, speedBullet * Time.deltaTime, 0);
+        transform.Translate(Vector3.up * speedBullet * Time.deltaTime);
     }
 }
