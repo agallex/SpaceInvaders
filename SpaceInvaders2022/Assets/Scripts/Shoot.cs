@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
 using UnityEngine;
+using UnityEngine.UIElements;
 using Vector3 = UnityEngine.Vector3;
 
 public class Shoot : MonoBehaviour
@@ -9,6 +10,13 @@ public class Shoot : MonoBehaviour
     public GameObject bullet;
     public float TimeShoot = 0.3f;
     private bool HaveBullet = true;
+    public void ShootOnClick ()
+    {
+        if (HaveBullet)
+        {
+            StartCoroutine(Shooting());
+        }
+    }
     // Update is called once per frame
     void Update()
     {

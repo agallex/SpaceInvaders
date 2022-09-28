@@ -17,7 +17,7 @@ public class SpawnEnemies : MonoBehaviour
     private int EnemiesInTheColumn = 3;
     
     private Vector3 Direction = Vector3.left;
-    private float _maxX = 3.2f;
+    private float _maxX = 2f;
     
     private int TouchingTheWalls = 0;
     
@@ -32,6 +32,7 @@ public class SpawnEnemies : MonoBehaviour
         if (Score > PlayerPrefs.GetInt("Record"))
         {
             PlayerPrefs.SetInt("Record", Score);
+            //PlayerPrefs.Save();
         }
 
         if (CountEnemy == 0)
@@ -89,9 +90,9 @@ public class SpawnEnemies : MonoBehaviour
 
     void SpawnEnemiesRectangle()
     {
-        float LeftX = -2.25f;
-        float UpY = 2.5f;
-        float delta = 0.75f;
+        float LeftX = -1.5f;
+        float UpY = 3f;
+        float delta = 0.5f;
         for (int i = 0; i < EnemiesInTheColumn; ++i)
         {
             for (int j = 0; j < EnemiesInARow; ++j)
