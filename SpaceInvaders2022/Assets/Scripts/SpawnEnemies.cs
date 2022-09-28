@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = System.Random;
@@ -10,6 +12,7 @@ public class SpawnEnemies : MonoBehaviour
     public static int Score = 0;
     public static int Level = 0;
     public static int CountEnemy = 0;
+    public static int is_Live = 0;
     
     public float StartLevelSpeedEnemy = 0f;
     private float DeltaLevelSpeedEnemy = 0.1f;
@@ -25,69 +28,127 @@ public class SpawnEnemies : MonoBehaviour
     public List<GameObject> Enemies = new List<GameObject>();
     public GameObject EnemiesBullet;
     private bool EnemiesHaveBullet = true;
+
+    public Button StartGame;
+    public Button Play;
+    public Button Restart;
+    public Button Pause;
+    public Button Left;
+    public Button Right;
+    public Button Shoot;
+    
+    public TextMeshProUGUI ScoreText;
+    public TextMeshProUGUI LevelText;
+
+    public GameObject Player;
+
+    private Coroutine CoroutineShoot;
     
     // Update is called once per frame
+
     void Update()
     {
-        if (Score > PlayerPrefs.GetInt("Record"))
+        if (is_Live == 1)
         {
-            PlayerPrefs.SetInt("Record", Score);
-            //PlayerPrefs.Save();
-        }
-
-        if (CountEnemy == 0)
-        {
-            ++Level;
-            StartLevelSpeedEnemy += DeltaLevelSpeedEnemy;
-            SpawnEnemiesRectangle();
-        }
-        float speedEnemy = StartLevelSpeedEnemy + 5.0f / (CountEnemy + 1);
-        foreach (var enemy in Enemies)
-        {
-            if (enemy != null)
+            if (Score > PlayerPrefs.GetInt("Record"))
             {
-                enemy.transform.Translate( Direction * speedEnemy * Time.deltaTime);
+                PlayerPrefs.SetInt("Record", Score);
+                //PlayerPrefs.Save();
             }
-        }
 
-        if (EnemiesHaveBullet)
-        {
-            StartCoroutine(EnemiesShooting());
-        }
+            if (CountEnemy == 0)
+            {
+                ++Level;
+                StartLevelSpeedEnemy += DeltaLevelSpeedEnemy;
+                SpawnEnemiesRectangle();
+            }
 
-        if (TouchingTheWalls == 2)
-        {
-            TouchingTheWalls = 0;
-            Vector3 downY = new Vector3(0, -0.25f, 0);
+            float speedEnemy = StartLevelSpeedEnemy + 5.0f / (CountEnemy + 1);
             foreach (var enemy in Enemies)
             {
                 if (enemy != null)
                 {
-                    enemy.transform.position += downY;
+                    enemy.transform.Translate(Direction * speedEnemy * Time.deltaTime);
+                }
+            }
+
+            if (EnemiesHaveBullet)
+            {
+                CoroutineShoot = StartCoroutine(EnemiesShooting());
+            }
+
+            if (TouchingTheWalls == 2)
+            {
+                TouchingTheWalls = 0;
+                Vector3 downY = new Vector3(0, -0.25f, 0);
+                foreach (var enemy in Enemies)
+                {
+                    if (enemy != null)
+                    {
+                        enemy.transform.position += downY;
+                    }
+                }
+            }
+
+            foreach (var enemy in Enemies)
+            {
+                if (enemy != null)
+                {
+                    if (enemy.transform.position.x <= -_maxX)
+                    {
+                        Direction = Vector3.right;
+                        ++TouchingTheWalls;
+                        break;
+                    }
+
+                    if (enemy.transform.position.x >= _maxX)
+                    {
+                        Direction = Vector3.left;
+                        ++TouchingTheWalls;
+                        break;
+                    }
                 }
             }
         }
+        else if (is_Live == -1)
+        {
+            Lose();
+        }
+    }
 
+    public void ButtonStartGame()
+    {
+        is_Live = 1;
+        StartGame.gameObject.SetActive(false);
+        Left.gameObject.SetActive(true);
+        Right.gameObject.SetActive(true);
+        Shoot.gameObject.SetActive(true);
+        ScoreText.gameObject.SetActive(true);
+        LevelText.gameObject.SetActive(true);
+        Player.SetActive(true);
+        Player.transform.position = new Vector3(0, -3, 0);
+    }
+
+    public void Lose()
+    {
         foreach (var enemy in Enemies)
         {
             if (enemy != null)
             {
-                if (enemy.transform.position.x <= -_maxX)
-                {
-                    Direction = Vector3.right;
-                    ++TouchingTheWalls;
-                    break;
-                }
-                if (enemy.transform.position.x >= _maxX)
-                {
-                    Direction = Vector3.left;
-                    ++TouchingTheWalls;
-                    break;
-                }
+                Destroy(enemy);
             }
         }
+        is_Live = 0;
+        StopCoroutine(CoroutineShoot);
+        StartGame.gameObject.SetActive(true);
+        Left.gameObject.SetActive(false);
+        Right.gameObject.SetActive(false);
+        Shoot.gameObject.SetActive(false);
+        ScoreText.gameObject.SetActive(false);
+        LevelText.gameObject.SetActive(false);
+        Player.SetActive(false);
     }
-
+    
     void SpawnEnemiesRectangle()
     {
         float LeftX = -1.5f;

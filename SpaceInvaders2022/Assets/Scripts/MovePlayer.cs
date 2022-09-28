@@ -2,14 +2,10 @@ using UnityEngine;
 
 public class MovePlayer : MonoBehaviour
 {
-    public int speedSheep = 10;
+    public int speedSheep = 8;
     private readonly float _maxX = 2f;
     private bool left = false;
     private bool right = false;
-    void Start() 
-    {
-        transform.position = new Vector3(0, -3, 0);
-    }
 
     public void LeftButtonUp()
     {

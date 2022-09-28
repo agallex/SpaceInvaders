@@ -19,7 +19,7 @@ public class EnemiesAI : MonoBehaviour
 
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Lose");
+            SpawnEnemies.is_Live = -1;
         }
         
         if (other.gameObject.CompareTag(("RedZone")))
