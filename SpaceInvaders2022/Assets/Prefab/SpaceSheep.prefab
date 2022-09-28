@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7430326217313825479}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3, z: 0}
+  m_LocalPosition: {x: 0.44707632, y: -3, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 785ee3711ff2e4556bec131c1567021f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedSheep: 10
+  speedSheep: 8
 --- !u!114 &7430326217313825500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,6 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 818377297039276732, guid: 61f4c4dfac0dc4ca992b5d0c8021d6f3, type: 3}
   TimeShoot: 0.3
+  HaveBullet: 1
 --- !u!58 &7430326217313825502
 CircleCollider2D:
   m_ObjectHideFlags: 0

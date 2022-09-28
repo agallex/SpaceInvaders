@@ -9,6 +9,8 @@ using Random = System.Random;
 
 public class SpawnEnemies : MonoBehaviour
 {
+    public GameObject MainCamera;
+    
     public static int Score = 0;
     public static int Level = 0;
     public static int CountEnemy = 0;
@@ -30,7 +32,7 @@ public class SpawnEnemies : MonoBehaviour
     private bool EnemiesHaveBullet = true;
 
     public Button StartGame;
-    public Button Play;
+    public Button Continue;
     public Button Restart;
     public Button Pause;
     public Button Left;
@@ -43,6 +45,9 @@ public class SpawnEnemies : MonoBehaviour
     public GameObject Player;
 
     private Coroutine CoroutineShoot;
+
+    public bool isPause = false;
+    public bool isRestart = false;
     
     // Update is called once per frame
 
@@ -120,16 +125,60 @@ public class SpawnEnemies : MonoBehaviour
     {
         is_Live = 1;
         StartGame.gameObject.SetActive(false);
+        Pause.gameObject.SetActive(true);
         Left.gameObject.SetActive(true);
         Right.gameObject.SetActive(true);
         Shoot.gameObject.SetActive(true);
         ScoreText.gameObject.SetActive(true);
         LevelText.gameObject.SetActive(true);
+        MainCamera.GetComponent<Quit>().ButtonQuit.gameObject.SetActive(false);
         Player.SetActive(true);
         Player.transform.position = new Vector3(0, -3, 0);
+        if (MainCamera.GetComponent<Music>().BackgroundMusicIsPlay)
+        {
+            MainCamera.GetComponent<Music>().buttonOnVolume.gameObject.SetActive(false);
+        }
+        else
+        {
+            MainCamera.GetComponent<Music>().buttonOffVolume.gameObject.SetActive(false);
+        }
     }
 
-    public void Lose()
+    public void ButtonPause()
+    {
+        Time.timeScale = 0;
+        isPause = true;
+        Pause.gameObject.SetActive(false);
+        Continue.gameObject.SetActive(true);
+        Restart.gameObject.SetActive(true);
+        if (MainCamera.GetComponent<Music>().BackgroundMusicIsPlay)
+        {
+            MainCamera.GetComponent<Music>().buttonOnVolume.gameObject.SetActive(true);
+        }
+        else
+        {
+            MainCamera.GetComponent<Music>().buttonOffVolume.gameObject.SetActive(true);
+        }
+    }
+
+    public void ButtonContinue()
+    {
+        Time.timeScale = 1;
+        isPause = false;
+        Pause.gameObject.SetActive(true);
+        Continue.gameObject.SetActive(false);
+        Restart.gameObject.SetActive(false);
+        if (MainCamera.GetComponent<Music>().BackgroundMusicIsPlay)
+        {
+            MainCamera.GetComponent<Music>().buttonOnVolume.gameObject.SetActive(false);
+        }
+        else
+        {
+            MainCamera.GetComponent<Music>().buttonOffVolume.gameObject.SetActive(false);
+        }
+    }
+
+    public void ButtonRestart()
     {
         foreach (var enemy in Enemies)
         {
@@ -138,15 +187,86 @@ public class SpawnEnemies : MonoBehaviour
                 Destroy(enemy);
             }
         }
-        is_Live = 0;
+
+        GameObject[] playerBullets = GameObject.FindGameObjectsWithTag("PlayerBullet");
+        for (int i = 0; i < playerBullets.Length; ++i)
+        {
+            Destroy(playerBullets[i]);
+        }
+        GameObject[] enemyBullets = GameObject.FindGameObjectsWithTag("EnemyBullet");
+        for (int i = 0; i < enemyBullets.Length; ++i)
+        {
+            Destroy(enemyBullets[i]);
+        }
+        Level = 0;
+        Score = 0;
+        CountEnemy = 0;
+        is_Live = 1;
+        StartLevelSpeedEnemy = 0f;
+        TouchingTheWalls = 0;
         StopCoroutine(CoroutineShoot);
+        EnemiesHaveBullet = true;
+        Time.timeScale = 1;
+        isPause = false;
+        isRestart = true;
+        Pause.gameObject.SetActive(true);
+        Continue.gameObject.SetActive(false);
+        Restart.gameObject.SetActive(false);
+        if (MainCamera.GetComponent<Music>().BackgroundMusicIsPlay)
+        {
+            MainCamera.GetComponent<Music>().buttonOnVolume.gameObject.SetActive(false);
+        }
+        else
+        {
+            MainCamera.GetComponent<Music>().buttonOffVolume.gameObject.SetActive(false);
+        }
+    }
+    
+    public void Lose()
+    {
+        Pause.gameObject.SetActive(false);
+        foreach (var enemy in Enemies)
+        {
+            if (enemy != null)
+            {
+                Destroy(enemy);
+            }
+        }
+        GameObject[] playerBullets = GameObject.FindGameObjectsWithTag("PlayerBullet");
+        for (int i = 0; i < playerBullets.Length; ++i)
+        {
+            Destroy(playerBullets[i]);
+        }
+        GameObject[] enemyBullets = GameObject.FindGameObjectsWithTag("EnemyBullet");
+        for (int i = 0; i < enemyBullets.Length; ++i)
+        {
+            Destroy(enemyBullets[i]);
+        }
+        Level = 0;
+        Score = 0;
+        CountEnemy = 0;
+        is_Live = 0;
+        StartLevelSpeedEnemy = 0f;
+        TouchingTheWalls = 0;
+        StopCoroutine(CoroutineShoot);
+        EnemiesHaveBullet = true;
         StartGame.gameObject.SetActive(true);
         Left.gameObject.SetActive(false);
         Right.gameObject.SetActive(false);
         Shoot.gameObject.SetActive(false);
         ScoreText.gameObject.SetActive(false);
         LevelText.gameObject.SetActive(false);
+        MainCamera.GetComponent<Quit>().ButtonQuit.gameObject.SetActive(true);
         Player.SetActive(false);
+        Player.GetComponent<Shoot>().HaveBullet = true;
+        if (MainCamera.GetComponent<Music>().BackgroundMusicIsPlay)
+        {
+            MainCamera.GetComponent<Music>().buttonOnVolume.gameObject.SetActive(true);
+        }
+        else
+        {
+            MainCamera.GetComponent<Music>().buttonOffVolume.gameObject.SetActive(true);
+        }
     }
     
     void SpawnEnemiesRectangle()

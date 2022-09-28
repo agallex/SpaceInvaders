@@ -21,6 +21,7 @@ public class MoveEnemyBullet : MonoBehaviour
 
         if (other.gameObject.CompareTag("Player"))
         {
+            Destroy(gameObject);
             SpawnEnemies.is_Live = -1;
         }
 

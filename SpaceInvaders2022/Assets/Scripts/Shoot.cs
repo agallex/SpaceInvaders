@@ -9,10 +9,12 @@ public class Shoot : MonoBehaviour
 {
     public GameObject bullet;
     public float TimeShoot = 0.3f;
-    private bool HaveBullet = true;
+    public bool HaveBullet = true;
+    public Coroutine CoroutinePlayerShoot;
+    public GameObject MainCamera;
     public void ShootOnClick ()
     {
-        if (HaveBullet)
+        if (HaveBullet && !MainCamera.GetComponent<SpawnEnemies>().isPause)
         {
             StartCoroutine(Shooting());
         }
@@ -20,9 +22,19 @@ public class Shoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Space) && HaveBullet)
+        if (Input.GetKeyUp(KeyCode.Space) && HaveBullet && !GameObject.Find("Main Camera").GetComponent<SpawnEnemies>().isPause)
         {
-            StartCoroutine(Shooting());
+            CoroutinePlayerShoot = StartCoroutine(Shooting());
+        }
+
+        if (MainCamera.GetComponent<SpawnEnemies>().isRestart)
+        {
+            MainCamera.GetComponent<SpawnEnemies>().isRestart = false;
+            if (CoroutinePlayerShoot != null)
+            {
+                StopCoroutine(CoroutinePlayerShoot);
+                HaveBullet = true;
+            }
         }
     }
 
