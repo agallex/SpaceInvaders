@@ -4,8 +4,8 @@ public class MovePlayer : MonoBehaviour
 {
     public int speedSheep = 8;
     private readonly float _maxX = 2f;
-    private bool left = false;
-    private bool right = false;
+    public bool left = false;
+    public bool right = false;
 
     public void LeftButtonUp()
     {

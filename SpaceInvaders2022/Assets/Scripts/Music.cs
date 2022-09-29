@@ -7,20 +7,20 @@ public class Music : MonoBehaviour
 {
     public Button buttonOnVolume;
     public Button buttonOffVolume;
-    public bool BackgroundMusicIsPlay;
+    public bool MusicIsPlay;
     // Start is called before the first frame update
     void Start()
     {
         if (PlayerPrefs.GetString("BackgroundMusic") != "no")
         {
-            BackgroundMusicIsPlay = true;
+            MusicIsPlay = true;
             buttonOnVolume.gameObject.SetActive(true);
             buttonOffVolume.gameObject.SetActive(false);
             gameObject.GetComponent<AudioSource>().Play();
         }
         else
         {
-            BackgroundMusicIsPlay = false;
+            MusicIsPlay = false;
             buttonOffVolume.gameObject.SetActive(true);
             buttonOnVolume.gameObject.SetActive(false);
         }
@@ -29,7 +29,7 @@ public class Music : MonoBehaviour
     // Update is called once per frame
     public void OnVolume()
     {
-        BackgroundMusicIsPlay = false;
+        MusicIsPlay = false;
         PlayerPrefs.SetString("BackgroundMusic", "no");
         buttonOnVolume.gameObject.SetActive(false);
         buttonOffVolume.gameObject.SetActive(true);
@@ -38,7 +38,7 @@ public class Music : MonoBehaviour
 
     public void OffVolume()
     {
-        BackgroundMusicIsPlay = true;
+        MusicIsPlay = true;
         PlayerPrefs.SetString("BackgroundMusic", "yes");
         buttonOffVolume.gameObject.SetActive(false);
         buttonOnVolume.gameObject.SetActive(true);

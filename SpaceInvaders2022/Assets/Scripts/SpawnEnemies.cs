@@ -134,7 +134,9 @@ public class SpawnEnemies : MonoBehaviour
         MainCamera.GetComponent<Quit>().ButtonQuit.gameObject.SetActive(false);
         Player.SetActive(true);
         Player.transform.position = new Vector3(0, -3, 0);
-        if (MainCamera.GetComponent<Music>().BackgroundMusicIsPlay)
+        Player.GetComponent<MovePlayer>().left = false;
+        Player.GetComponent<MovePlayer>().right = false;
+        if (MainCamera.GetComponent<Music>().MusicIsPlay)
         {
             MainCamera.GetComponent<Music>().buttonOnVolume.gameObject.SetActive(false);
         }
@@ -151,7 +153,7 @@ public class SpawnEnemies : MonoBehaviour
         Pause.gameObject.SetActive(false);
         Continue.gameObject.SetActive(true);
         Restart.gameObject.SetActive(true);
-        if (MainCamera.GetComponent<Music>().BackgroundMusicIsPlay)
+        if (MainCamera.GetComponent<Music>().MusicIsPlay)
         {
             MainCamera.GetComponent<Music>().buttonOnVolume.gameObject.SetActive(true);
         }
@@ -168,7 +170,7 @@ public class SpawnEnemies : MonoBehaviour
         Pause.gameObject.SetActive(true);
         Continue.gameObject.SetActive(false);
         Restart.gameObject.SetActive(false);
-        if (MainCamera.GetComponent<Music>().BackgroundMusicIsPlay)
+        if (MainCamera.GetComponent<Music>().MusicIsPlay)
         {
             MainCamera.GetComponent<Music>().buttonOnVolume.gameObject.SetActive(false);
         }
@@ -212,7 +214,8 @@ public class SpawnEnemies : MonoBehaviour
         Pause.gameObject.SetActive(true);
         Continue.gameObject.SetActive(false);
         Restart.gameObject.SetActive(false);
-        if (MainCamera.GetComponent<Music>().BackgroundMusicIsPlay)
+        Player.transform.position = new Vector3(0, -3, 0);
+        if (MainCamera.GetComponent<Music>().MusicIsPlay)
         {
             MainCamera.GetComponent<Music>().buttonOnVolume.gameObject.SetActive(false);
         }
@@ -259,7 +262,7 @@ public class SpawnEnemies : MonoBehaviour
         MainCamera.GetComponent<Quit>().ButtonQuit.gameObject.SetActive(true);
         Player.SetActive(false);
         Player.GetComponent<Shoot>().HaveBullet = true;
-        if (MainCamera.GetComponent<Music>().BackgroundMusicIsPlay)
+        if (MainCamera.GetComponent<Music>().MusicIsPlay)
         {
             MainCamera.GetComponent<Music>().buttonOnVolume.gameObject.SetActive(true);
         }

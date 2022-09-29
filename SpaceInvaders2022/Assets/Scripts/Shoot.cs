@@ -16,6 +16,10 @@ public class Shoot : MonoBehaviour
     {
         if (HaveBullet && !MainCamera.GetComponent<SpawnEnemies>().isPause)
         {
+            if (MainCamera.GetComponent<Music>().MusicIsPlay)
+            {
+                gameObject.GetComponent<AudioSource>().Play();
+            }
             StartCoroutine(Shooting());
         }
     }
@@ -24,6 +28,10 @@ public class Shoot : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.Space) && HaveBullet && !GameObject.Find("Main Camera").GetComponent<SpawnEnemies>().isPause)
         {
+            if (MainCamera.GetComponent<Music>().MusicIsPlay)
+            {
+                gameObject.GetComponent<AudioSource>().Play();
+            }
             CoroutinePlayerShoot = StartCoroutine(Shooting());
         }
 
