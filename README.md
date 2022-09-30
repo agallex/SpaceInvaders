@@ -3,7 +3,7 @@
 
 На ветке ForIOS находится проект Юнити для IOS устройств.
 
-На ветке ForAndroid находится проект Юнити для Android устройств и установочный файл .apk.
+На ветке ForAndroid находится проект Юнити для Android устройств и установочный файл .apk. [Ссылка на скачивание .apk.](https://github.com/agallex/SpaceInvaders/raw/ForAndroid/SpaceInvaders.apk)
 
 Можете склонировать репозиторий и открыть проект в Юнити.
 
