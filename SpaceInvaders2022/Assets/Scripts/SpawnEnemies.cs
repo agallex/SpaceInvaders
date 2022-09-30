@@ -22,6 +22,7 @@ public class SpawnEnemies : MonoBehaviour
     private int EnemiesInTheColumn = 3;
     
     private Vector3 Direction = Vector3.left;
+    private bool CurrentWallTouchLeft = true;
     private float _maxX = 2f;
     
     private int TouchingTheWalls = 0;
@@ -68,7 +69,7 @@ public class SpawnEnemies : MonoBehaviour
                 SpawnEnemiesRectangle();
             }
 
-            float speedEnemy = StartLevelSpeedEnemy + 5.0f / (CountEnemy + 1);
+            float speedEnemy = StartLevelSpeedEnemy + 5.0f / (CountEnemy + 1.5f);
             foreach (var enemy in Enemies)
             {
                 if (enemy != null)
@@ -82,6 +83,28 @@ public class SpawnEnemies : MonoBehaviour
                 CoroutineShoot = StartCoroutine(EnemiesShooting());
             }
 
+            foreach (var enemy in Enemies)
+            {
+                if (enemy != null)
+                {
+                    if (enemy.transform.position.x <= -_maxX && CurrentWallTouchLeft)
+                    {
+                        CurrentWallTouchLeft = false;
+                        Direction = Vector3.right;
+                        ++TouchingTheWalls;
+                        break;
+                    }
+
+                    if (enemy.transform.position.x >= _maxX && !CurrentWallTouchLeft)
+                    {
+                        CurrentWallTouchLeft = true;
+                        Direction = Vector3.left;
+                        ++TouchingTheWalls;
+                        break;
+                    }
+                }
+            }
+            
             if (TouchingTheWalls == 2)
             {
                 TouchingTheWalls = 0;
@@ -94,26 +117,7 @@ public class SpawnEnemies : MonoBehaviour
                     }
                 }
             }
-
-            foreach (var enemy in Enemies)
-            {
-                if (enemy != null)
-                {
-                    if (enemy.transform.position.x <= -_maxX)
-                    {
-                        Direction = Vector3.right;
-                        ++TouchingTheWalls;
-                        break;
-                    }
-
-                    if (enemy.transform.position.x >= _maxX)
-                    {
-                        Direction = Vector3.left;
-                        ++TouchingTheWalls;
-                        break;
-                    }
-                }
-            }
+            
         }
         else if (is_Live == -1)
         {
@@ -134,8 +138,6 @@ public class SpawnEnemies : MonoBehaviour
         MainCamera.GetComponent<Quit>().ButtonQuit.gameObject.SetActive(false);
         Player.SetActive(true);
         Player.transform.position = new Vector3(0, -3, 0);
-        Player.GetComponent<MovePlayer>().left = false;
-        Player.GetComponent<MovePlayer>().right = false;
         if (MainCamera.GetComponent<Music>().MusicIsPlay)
         {
             MainCamera.GetComponent<Music>().buttonOnVolume.gameObject.SetActive(false);
@@ -262,6 +264,9 @@ public class SpawnEnemies : MonoBehaviour
         MainCamera.GetComponent<Quit>().ButtonQuit.gameObject.SetActive(true);
         Player.SetActive(false);
         Player.GetComponent<Shoot>().HaveBullet = true;
+        Player.GetComponent<MovePlayer>().left = false;
+        Player.GetComponent<MovePlayer>().right = false;
+        Player.GetComponent<Shoot>().ShootButtonEnter = false;
         if (MainCamera.GetComponent<Music>().MusicIsPlay)
         {
             MainCamera.GetComponent<Music>().buttonOnVolume.gameObject.SetActive(true);

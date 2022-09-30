@@ -12,21 +12,21 @@ public class Shoot : MonoBehaviour
     public bool HaveBullet = true;
     public Coroutine CoroutinePlayerShoot;
     public GameObject MainCamera;
-    public void ShootOnClick ()
+    public bool ShootButtonEnter = false;
+    public void ShootButtonDown()
     {
-        if (HaveBullet && !MainCamera.GetComponent<SpawnEnemies>().isPause)
-        {
-            if (MainCamera.GetComponent<Music>().MusicIsPlay)
-            {
-                gameObject.GetComponent<AudioSource>().Play();
-            }
-            StartCoroutine(Shooting());
-        }
+        ShootButtonEnter = true;
     }
+    
+    public void ShootButtonUp()
+    {
+        ShootButtonEnter = false;
+    }
+    
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Space) && HaveBullet && !GameObject.Find("Main Camera").GetComponent<SpawnEnemies>().isPause)
+        if (Input.GetKey(KeyCode.Space) && HaveBullet && !MainCamera.GetComponent<SpawnEnemies>().isPause)
         {
             if (MainCamera.GetComponent<Music>().MusicIsPlay)
             {
@@ -34,7 +34,16 @@ public class Shoot : MonoBehaviour
             }
             CoroutinePlayerShoot = StartCoroutine(Shooting());
         }
-
+        
+        if (ShootButtonEnter && HaveBullet && !MainCamera.GetComponent<SpawnEnemies>().isPause)
+        {
+            if (MainCamera.GetComponent<Music>().MusicIsPlay)
+            {
+                gameObject.GetComponent<AudioSource>().Play();
+            }
+            CoroutinePlayerShoot = StartCoroutine(Shooting());
+        }
+        
         if (MainCamera.GetComponent<SpawnEnemies>().isRestart)
         {
             MainCamera.GetComponent<SpawnEnemies>().isRestart = false;
