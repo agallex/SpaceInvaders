@@ -12,9 +12,14 @@
 Можно сбилдить проект с помощью Xcode, и поиграть на телефоне. Там управление только сенсорными кнопками.
 Делитесь своими рекордами)))
 
-<br>
-<img height="200" src=" https://github.com/agallex/SpaceInvaders/blob/main/PhotosFromTheGame/gameplay.PNG " />
-<br>
+Screenshots: Gameplay/Pause/Menu/StartGame.
+
+<div align="center">
+<img src="PhotosFromTheGame/gameplay.PNG" height="400">
+<img src="PhotosFromTheGame/pause.PNG" height="400">
+<img src="PhotosFromTheGame/menu.PNG" height="400">
+<img src="PhotosFromTheGame/startgame.PNG" height="400">
+</div>
 
 I made a game on Unity.
 
