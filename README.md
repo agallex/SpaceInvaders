@@ -3,7 +3,7 @@
 
 На ветке ForIOS находится проект Юнити для IOS устройств.
 
-На ветке ForAndroid находится проект Юнити для Android устройств.
+На ветке ForAndroid находится проект Юнити для Android устройств и установочный файл .apk.
 
 Можете склонировать репозиторий и открыть проект в Юнити.
 
@@ -16,7 +16,7 @@ I made a game on Unity.
 
 There is a Unity project for iOS devices on the ForiOS branch.
 
-There is a Unity project for Android devices on the ForAndroid branch.
+There is a Unity project for Android devices and the .apk installation file on the ForAndroid branch.
 
 You can clone the repository and open the project in Unity.
 
