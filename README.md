@@ -12,6 +12,10 @@
 Можно сбилдить проект с помощью Xcode, и поиграть на телефоне. Там управление только сенсорными кнопками.
 Делитесь своими рекордами)))
 
+<br>
+<img height="200" src=" https://github.com/agallex/SpaceInvaders/blob/main/PhotosFromTheGame/gameplay.PNG " />
+<br>
+
 I made a game on Unity.
 
 There is a Unity project for iOS devices on the ForiOS branch.
