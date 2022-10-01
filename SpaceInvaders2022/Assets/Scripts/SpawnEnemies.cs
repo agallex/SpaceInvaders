@@ -149,9 +149,9 @@ public class SpawnEnemies : MonoBehaviour
             MainCamera.GetComponent<Music>().buttonOffVolume.gameObject.SetActive(false);
         }
 
-        if (ShowGameOverText() != null)
+        if (CoroutineGameOverText != null)
         {
-            StopCoroutine(ShowGameOverText());
+            StopCoroutine(CoroutineGameOverText);
         }
         GameOverText.gameObject.SetActive(false);
     }
