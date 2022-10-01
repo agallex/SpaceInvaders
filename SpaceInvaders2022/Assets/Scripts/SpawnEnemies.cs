@@ -42,10 +42,12 @@ public class SpawnEnemies : MonoBehaviour
     
     public TextMeshProUGUI ScoreText;
     public TextMeshProUGUI LevelText;
+    public TextMeshProUGUI GameOverText;
 
     public GameObject Player;
 
     private Coroutine CoroutineShoot;
+    private Coroutine CoroutineGameOverText;
 
     public bool isPause = false;
     public bool isRestart = false;
@@ -146,6 +148,12 @@ public class SpawnEnemies : MonoBehaviour
         {
             MainCamera.GetComponent<Music>().buttonOffVolume.gameObject.SetActive(false);
         }
+
+        if (ShowGameOverText() != null)
+        {
+            StopCoroutine(ShowGameOverText());
+        }
+        GameOverText.gameObject.SetActive(false);
     }
 
     public void ButtonPause()
@@ -229,6 +237,7 @@ public class SpawnEnemies : MonoBehaviour
     
     public void Lose()
     {
+        CoroutineGameOverText = StartCoroutine(ShowGameOverText());
         Pause.gameObject.SetActive(false);
         foreach (var enemy in Enemies)
         {
@@ -323,7 +332,23 @@ public class SpawnEnemies : MonoBehaviour
         Random rnd = new Random();
         return NoEmptyIndex[rnd.Next(0, NoEmptyIndex.Count)];
     }
-    
+
+    IEnumerator ShowGameOverText()
+    {
+        GameOverText.gameObject.SetActive(true);
+        var color = GameOverText.faceColor;
+        color.a = 255;
+        GameOverText.faceColor = color;
+        yield return new WaitForSeconds(1f);
+        for (byte i = 255; i > 0; --i)
+        {
+            color.a = i;
+            GameOverText.faceColor = color;
+            yield return new WaitForSeconds(0.01f);
+        }
+        GameOverText.gameObject.SetActive(false);
+    }
+
     IEnumerator EnemiesShooting()
     {
         EnemiesHaveBullet = false;
