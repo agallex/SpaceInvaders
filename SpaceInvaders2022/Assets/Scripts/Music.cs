@@ -9,20 +9,16 @@ public class Music : MonoBehaviour
     public Button buttonOffVolume;
     public bool MusicIsPlay;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         if (PlayerPrefs.GetString("BackgroundMusic") != "no")
         {
             MusicIsPlay = true;
-            buttonOnVolume.gameObject.SetActive(true);
-            buttonOffVolume.gameObject.SetActive(false);
             gameObject.GetComponent<AudioSource>().Play();
         }
         else
         {
             MusicIsPlay = false;
-            buttonOffVolume.gameObject.SetActive(true);
-            buttonOnVolume.gameObject.SetActive(false);
         }
     }
 

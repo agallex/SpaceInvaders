@@ -39,10 +39,12 @@ public class SpawnEnemies : MonoBehaviour
     public Button Left;
     public Button Right;
     public Button Shoot;
-    
+
     public TextMeshProUGUI ScoreText;
     public TextMeshProUGUI LevelText;
+    public TextMeshProUGUI RecordText;
     public TextMeshProUGUI GameOverText;
+    public Text NicknamePlayerText;
 
     public GameObject Player;
 
@@ -51,7 +53,31 @@ public class SpawnEnemies : MonoBehaviour
 
     public bool isPause = false;
     public bool isRestart = false;
-    
+
+    public void BeginSetup()
+    {
+        if (PlayerPrefs.HasKey("Nickname"))
+        {
+            if (MainCamera.GetComponent<Music>().MusicIsPlay)
+            {
+                MainCamera.GetComponent<Music>().buttonOnVolume.gameObject.SetActive(true);
+            }
+            else
+            {
+                MainCamera.GetComponent<Music>().buttonOffVolume.gameObject.SetActive(true);
+            }
+            MainCamera.GetComponent<Quit>().ButtonQuit.gameObject.SetActive(true);
+            StartGame.gameObject.SetActive(true);
+            RecordText.gameObject.SetActive(true);
+            NicknamePlayerText.text = PlayerPrefs.GetString("Nickname");
+            NicknamePlayerText.gameObject.SetActive(true);
+        }
+    }
+    void Start()
+    {
+        BeginSetup();
+    }
+
     // Update is called once per frame
 
     void Update()
@@ -130,6 +156,7 @@ public class SpawnEnemies : MonoBehaviour
     public void ButtonStartGame()
     {
         is_Live = 1;
+        NicknamePlayerText.gameObject.SetActive(false);
         StartGame.gameObject.SetActive(false);
         Pause.gameObject.SetActive(true);
         Left.gameObject.SetActive(true);
@@ -237,6 +264,7 @@ public class SpawnEnemies : MonoBehaviour
     
     public void Lose()
     {
+        NicknamePlayerText.gameObject.SetActive(true);
         CoroutineGameOverText = StartCoroutine(ShowGameOverText());
         Pause.gameObject.SetActive(false);
         foreach (var enemy in Enemies)
