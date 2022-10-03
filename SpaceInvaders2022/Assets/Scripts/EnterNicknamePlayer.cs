@@ -22,6 +22,10 @@ public class EnterNicknamePlayer : MonoBehaviour
         {
             UI_InputWindow.SetActive(false);
         }
+        else
+        {
+            UI_InputWindow.SetActive(true);
+        }
     }
     
     public void ChangedValue(string value)

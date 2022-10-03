@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,7 +20,7 @@ public class EnemiesAI : MonoBehaviour
 
         if (other.gameObject.CompareTag("Player"))
         {
-            SpawnEnemies.is_Live = -1;
+            GameObject.Find("Main Camera").GetComponent<SpawnEnemies>().is_Live = -1;
         }
         
         if (other.gameObject.CompareTag(("RedZone")))

@@ -14,8 +14,10 @@ public class SpawnEnemies : MonoBehaviour
     public static int Score = 0;
     public static int Level = 0;
     public static int CountEnemy = 0;
-    public static int is_Live = 0;
-    
+    public int is_Live = 0;
+    public int Heart = 3;
+    public TextMeshProUGUI TextHeart;
+
     public float StartLevelSpeedEnemy = 0f;
     private float DeltaLevelSpeedEnemy = 0.1f;
     private int EnemiesInARow = 7;
@@ -39,6 +41,7 @@ public class SpawnEnemies : MonoBehaviour
     public Button Left;
     public Button Right;
     public Button Shoot;
+    public Button Back;
 
     public TextMeshProUGUI ScoreText;
     public TextMeshProUGUI LevelText;
@@ -142,6 +145,10 @@ public class SpawnEnemies : MonoBehaviour
                     if (enemy != null)
                     {
                         enemy.transform.position += downY;
+                        if (enemy.transform.position.y < -5.0f)
+                        {
+                            is_Live = -1;
+                        }
                     }
                 }
             }
@@ -156,6 +163,9 @@ public class SpawnEnemies : MonoBehaviour
     public void ButtonStartGame()
     {
         is_Live = 1;
+        Heart = 3;
+        TextHeart.text = "x" + Heart.ToString();
+        TextHeart.gameObject.SetActive(true);
         NicknamePlayerText.gameObject.SetActive(false);
         StartGame.gameObject.SetActive(false);
         Pause.gameObject.SetActive(true);
@@ -190,6 +200,7 @@ public class SpawnEnemies : MonoBehaviour
         Pause.gameObject.SetActive(false);
         Continue.gameObject.SetActive(true);
         Restart.gameObject.SetActive(true);
+        Back.gameObject.SetActive(true);
         if (MainCamera.GetComponent<Music>().MusicIsPlay)
         {
             MainCamera.GetComponent<Music>().buttonOnVolume.gameObject.SetActive(true);
@@ -207,6 +218,7 @@ public class SpawnEnemies : MonoBehaviour
         Pause.gameObject.SetActive(true);
         Continue.gameObject.SetActive(false);
         Restart.gameObject.SetActive(false);
+        Back.gameObject.SetActive(false);
         if (MainCamera.GetComponent<Music>().MusicIsPlay)
         {
             MainCamera.GetComponent<Music>().buttonOnVolume.gameObject.SetActive(false);
@@ -219,6 +231,8 @@ public class SpawnEnemies : MonoBehaviour
 
     public void ButtonRestart()
     {
+        Heart = 3;
+        TextHeart.text = "x" + Heart.ToString();
         foreach (var enemy in Enemies)
         {
             if (enemy != null)
@@ -226,7 +240,6 @@ public class SpawnEnemies : MonoBehaviour
                 Destroy(enemy);
             }
         }
-
         GameObject[] playerBullets = GameObject.FindGameObjectsWithTag("PlayerBullet");
         for (int i = 0; i < playerBullets.Length; ++i)
         {
@@ -251,6 +264,7 @@ public class SpawnEnemies : MonoBehaviour
         Pause.gameObject.SetActive(true);
         Continue.gameObject.SetActive(false);
         Restart.gameObject.SetActive(false);
+        Back.gameObject.SetActive(false);
         Player.transform.position = new Vector3(0, -3, 0);
         if (MainCamera.GetComponent<Music>().MusicIsPlay)
         {
@@ -261,9 +275,18 @@ public class SpawnEnemies : MonoBehaviour
             MainCamera.GetComponent<Music>().buttonOffVolume.gameObject.SetActive(false);
         }
     }
+
+    public void ButtonBack()
+    {
+        ButtonContinue();
+        Lose();
+        GameOverText.gameObject.SetActive(false);
+    }
     
     public void Lose()
     {
+        Heart = 0;
+        TextHeart.gameObject.SetActive(false);
         NicknamePlayerText.gameObject.SetActive(true);
         CoroutineGameOverText = StartCoroutine(ShowGameOverText());
         Pause.gameObject.SetActive(false);

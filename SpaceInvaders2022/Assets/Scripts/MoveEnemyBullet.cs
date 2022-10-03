@@ -22,7 +22,12 @@ public class MoveEnemyBullet : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             Destroy(gameObject);
-            SpawnEnemies.is_Live = -1;
+            if (--GameObject.Find("Main Camera").GetComponent<SpawnEnemies>().Heart == 0)
+            {
+                GameObject.Find("Main Camera").GetComponent<SpawnEnemies>().is_Live = -1;
+            }
+            GameObject.Find("Main Camera").GetComponent<SpawnEnemies>().TextHeart.text = "x" +
+                GameObject.Find("Main Camera").GetComponent<SpawnEnemies>().Heart.ToString();
         }
 
         if (other.gameObject.CompareTag(("RedZone")))
