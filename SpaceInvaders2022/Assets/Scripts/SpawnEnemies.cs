@@ -55,7 +55,6 @@ public class SpawnEnemies : MonoBehaviour
     private Coroutine CoroutineGameOverText;
 
     public bool isPause = false;
-    public bool isRestart = false;
 
     public void BeginSetup()
     {
@@ -69,6 +68,7 @@ public class SpawnEnemies : MonoBehaviour
             {
                 MainCamera.GetComponent<Music>().buttonOffVolume.gameObject.SetActive(true);
             }
+            GetComponent<Database>().ButtonRewards.gameObject.SetActive(true);
             MainCamera.GetComponent<Quit>().ButtonQuit.gameObject.SetActive(true);
             StartGame.gameObject.SetActive(true);
             RecordText.gameObject.SetActive(true);
@@ -174,6 +174,7 @@ public class SpawnEnemies : MonoBehaviour
         Shoot.gameObject.SetActive(true);
         ScoreText.gameObject.SetActive(true);
         LevelText.gameObject.SetActive(true);
+        GetComponent<Database>().ButtonRewards.gameObject.SetActive(false);
         MainCamera.GetComponent<Quit>().ButtonQuit.gameObject.SetActive(false);
         Player.SetActive(true);
         Player.transform.position = new Vector3(0, -3, 0);
@@ -231,49 +232,9 @@ public class SpawnEnemies : MonoBehaviour
 
     public void ButtonRestart()
     {
-        Heart = 3;
-        TextHeart.text = "x" + Heart.ToString();
-        foreach (var enemy in Enemies)
-        {
-            if (enemy != null)
-            {
-                Destroy(enemy);
-            }
-        }
-        GameObject[] playerBullets = GameObject.FindGameObjectsWithTag("PlayerBullet");
-        for (int i = 0; i < playerBullets.Length; ++i)
-        {
-            Destroy(playerBullets[i]);
-        }
-        GameObject[] enemyBullets = GameObject.FindGameObjectsWithTag("EnemyBullet");
-        for (int i = 0; i < enemyBullets.Length; ++i)
-        {
-            Destroy(enemyBullets[i]);
-        }
-        Level = 0;
-        Score = 0;
-        CountEnemy = 0;
-        is_Live = 1;
-        StartLevelSpeedEnemy = 0f;
-        TouchingTheWalls = 0;
-        StopCoroutine(CoroutineShoot);
-        EnemiesHaveBullet = true;
-        Time.timeScale = 1;
-        isPause = false;
-        isRestart = true;
-        Pause.gameObject.SetActive(true);
-        Continue.gameObject.SetActive(false);
-        Restart.gameObject.SetActive(false);
-        Back.gameObject.SetActive(false);
-        Player.transform.position = new Vector3(0, -3, 0);
-        if (MainCamera.GetComponent<Music>().MusicIsPlay)
-        {
-            MainCamera.GetComponent<Music>().buttonOnVolume.gameObject.SetActive(false);
-        }
-        else
-        {
-            MainCamera.GetComponent<Music>().buttonOffVolume.gameObject.SetActive(false);
-        }
+        ButtonContinue();
+        Lose();
+        ButtonStartGame();
     }
 
     public void ButtonBack()
@@ -285,6 +246,8 @@ public class SpawnEnemies : MonoBehaviour
     
     public void Lose()
     {
+        GetComponent<Database>().SetRecord(PlayerPrefs.GetInt("Record").ToString());
+        GetComponent<Database>().ButtonRewards.gameObject.SetActive(true);
         Heart = 0;
         TextHeart.gameObject.SetActive(false);
         NicknamePlayerText.gameObject.SetActive(true);

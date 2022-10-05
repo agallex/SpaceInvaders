@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
@@ -8,9 +9,8 @@ using Vector3 = UnityEngine.Vector3;
 public class Shoot : MonoBehaviour
 {
     public GameObject bullet;
-    public float TimeShoot = 0.3f;
+    public float TimeShoot = 0.2f;
     public bool HaveBullet = true;
-    public Coroutine CoroutinePlayerShoot;
     public GameObject MainCamera;
     public bool ShootButtonEnter = false;
     public void ShootButtonDown()
@@ -32,7 +32,7 @@ public class Shoot : MonoBehaviour
             {
                 gameObject.GetComponent<AudioSource>().Play();
             }
-            CoroutinePlayerShoot = StartCoroutine(Shooting());
+            StartCoroutine(Shooting());
         }
         
         if (ShootButtonEnter && HaveBullet && !MainCamera.GetComponent<SpawnEnemies>().isPause)
@@ -41,17 +41,7 @@ public class Shoot : MonoBehaviour
             {
                 gameObject.GetComponent<AudioSource>().Play();
             }
-            CoroutinePlayerShoot = StartCoroutine(Shooting());
-        }
-        
-        if (MainCamera.GetComponent<SpawnEnemies>().isRestart)
-        {
-            MainCamera.GetComponent<SpawnEnemies>().isRestart = false;
-            if (CoroutinePlayerShoot != null)
-            {
-                StopCoroutine(CoroutinePlayerShoot);
-                HaveBullet = true;
-            }
+            StartCoroutine(Shooting());
         }
     }
 
@@ -61,7 +51,7 @@ public class Shoot : MonoBehaviour
         Vector3 playerPos = transform.position;
         Vector3 spawnPos = new Vector3(playerPos.x, playerPos.y + 0.4f, playerPos.z);
         Instantiate(bullet, spawnPos, transform.rotation);
-        yield return new WaitForSeconds(TimeShoot);
+        yield return new WaitForSeconds(TimeShoot + TimeShoot / (TimeShoot + SpawnEnemies.Level / 10.0f) / 10.0f);
         HaveBullet = true;
     }
 }

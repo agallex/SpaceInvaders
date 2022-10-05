@@ -17,6 +17,9 @@ public class EnterNameAndPassword : MonoBehaviour
 
     public void ChangedValueName(string value)
     {
+        GetComponent<Database>().SuccessfulRegistration.gameObject.SetActive(false);
+        GetComponent<Database>().NameAlreadyExist.gameObject.SetActive(false);
+        GetComponent<Database>().IncorrectLoginOrPassword.gameObject.SetActive(false);
         NicknamePlayer = value;
         bool isCorrectSymbol = false;
         foreach (var ValidSymbol in ValidСharacters)
@@ -38,6 +41,9 @@ public class EnterNameAndPassword : MonoBehaviour
     }
     public void EndValueName(string value)
     {
+        GetComponent<Database>().SuccessfulRegistration.gameObject.SetActive(false);
+        GetComponent<Database>().NameAlreadyExist.gameObject.SetActive(false);
+        GetComponent<Database>().IncorrectLoginOrPassword.gameObject.SetActive(false);
         NicknamePlayer = value;
         bool isCorrectSymbol = false;
         foreach (var NicknameSymbol in NicknamePlayer)
@@ -64,8 +70,19 @@ public class EnterNameAndPassword : MonoBehaviour
         }
     }
     
+    public void ChangeValuePassword(string value)
+    {
+        GetComponent<Database>().SuccessfulRegistration.gameObject.SetActive(false);
+        GetComponent<Database>().NameAlreadyExist.gameObject.SetActive(false);
+        GetComponent<Database>().IncorrectLoginOrPassword.gameObject.SetActive(false);
+        PasswordPlayer = value;
+    }
+    
     public void EndValuePassword(string value)
     {
+        GetComponent<Database>().SuccessfulRegistration.gameObject.SetActive(false);
+        GetComponent<Database>().NameAlreadyExist.gameObject.SetActive(false);
+        GetComponent<Database>().IncorrectLoginOrPassword.gameObject.SetActive(false);
         PasswordPlayer = value;
         if (PasswordPlayer.Length > 4)
         {
