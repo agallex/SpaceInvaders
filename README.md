@@ -1,5 +1,5 @@
 # SpaceInvaders
  
-Здесь лежит проект для IOS устройств.
+Здесь лежит проект Unity.
 
-Here lies a project for iOS devices.
+Here lies the Unity project.
