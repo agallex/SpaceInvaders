@@ -1,0 +1,37 @@
+{
+  "project_info": {
+    "project_number": "2145271255",
+    "firebase_url": "https://spaceinvaders-e1587-default-rtdb.firebaseio.com",
+    "project_id": "spaceinvaders-e1587",
+    "storage_bucket": "spaceinvaders-e1587.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:2145271255:ios:59a1613e6f8a9dd42f1f92",
+        "android_client_info": {
+          "package_name": "com.AgallexPlay.SpaceInvaders"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "2145271255-2vg9837c4inl9hgblbc3i411hm330rmi.apps.googleusercontent.com"
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9LYswF9BRbmOc5mGhCdf7-nzfAlOGeWs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 0
+        },
+        "appinvite_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
