@@ -19,7 +19,7 @@ Screenshots: Gameplay/Leaderboard/Menu/Registration.
 <img src="PhotosFromTheGame/registration.PNG" height="400">
 </div>
 
-I made a toy on Unity.
+I made a game on Unity.
 
 The UnityProject branch contains the Unity project for iOS and Android devices and the .apk installation file. [Download link .apk.](https://github.com/ag alex/Space Invaders/blob/Unity Project/Space Invaders.apk)
 
