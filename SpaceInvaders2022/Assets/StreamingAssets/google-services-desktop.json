@@ -8,27 +8,37 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:2145271255:ios:59a1613e6f8a9dd42f1f92",
+        "mobilesdk_app_id": "1:2145271255:android:43a1ec11f02a7e4d2f1f92",
         "android_client_info": {
           "package_name": "com.AgallexPlay.SpaceInvaders"
         }
       },
       "oauth_client": [
         {
-          "client_id": "2145271255-2vg9837c4inl9hgblbc3i411hm330rmi.apps.googleusercontent.com"
+          "client_id": "2145271255-du75ejbnl5l0m43f273qu33u62d3mngn.apps.googleusercontent.com",
+          "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB9LYswF9BRbmOc5mGhCdf7-nzfAlOGeWs"
+          "current_key": "AIzaSyAaomcob6YwM0ZJbO-ThF8NkAiwoNH_jzU"
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 0
-        },
         "appinvite_service": {
-          "status": 1
+          "other_platform_oauth_client": [
+            {
+              "client_id": "2145271255-du75ejbnl5l0m43f273qu33u62d3mngn.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "2145271255-2vg9837c4inl9hgblbc3i411hm330rmi.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.AgallexPlay.SpaceInvaders"
+              }
+            }
+          ]
         }
       }
     }
