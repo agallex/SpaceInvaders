@@ -1,5 +1,5 @@
 # SpaceInvaders
-Сделал игрушку на Юнити.
+Сделал игрушку на Юнити с таблицей рекордов.
 
 На ветке UnityProject находится проект Юнити для IOS и Android устройств и установочный файл .apk. [Ссылка на скачивание .apk.](https://github.com/agallex/SpaceInvaders/blob/UnityProject/SpaceInvaders.apk)
 
@@ -19,7 +19,7 @@ Screenshots: Gameplay/Leaderboard/Menu/Registration.
 <img src="PhotosFromTheGame/registration.PNG" height="400">
 </div>
 
-I made a game on Unity.
+I made a game on Unity with a table of records.
 
 The UnityProject branch contains the Unity project for iOS and Android devices and the .apk installation file. [Download link .apk.](https://github.com/ag alex/Space Invaders/blob/Unity Project/Space Invaders.apk)
 
