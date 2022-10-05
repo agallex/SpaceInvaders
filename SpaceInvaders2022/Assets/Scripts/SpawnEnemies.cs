@@ -19,7 +19,7 @@ public class SpawnEnemies : MonoBehaviour
     public TextMeshProUGUI TextHeart;
 
     public float StartLevelSpeedEnemy = 0f;
-    private float DeltaLevelSpeedEnemy = 0.1f;
+    private float DeltaLevelSpeedEnemy = 0.05f;
     private int EnemiesInARow = 7;
     private int EnemiesInTheColumn = 3;
     
@@ -96,11 +96,12 @@ public class SpawnEnemies : MonoBehaviour
             if (CountEnemy == 0)
             {
                 ++Level;
+                TouchingTheWalls = 0;
                 StartLevelSpeedEnemy += DeltaLevelSpeedEnemy;
                 SpawnEnemiesRectangle();
             }
 
-            float speedEnemy = StartLevelSpeedEnemy + 5.0f / (CountEnemy + 1.5f);
+            float speedEnemy = StartLevelSpeedEnemy + 4.5f / (CountEnemy + 1.5f);
             foreach (var enemy in Enemies)
             {
                 if (enemy != null)
@@ -246,7 +247,7 @@ public class SpawnEnemies : MonoBehaviour
     
     public void Lose()
     {
-        GetComponent<Database>().SetRecord(PlayerPrefs.GetInt("Record").ToString());
+        GetComponent<Database>().SetRecord(PlayerPrefs.GetInt("Record"));
         GetComponent<Database>().ButtonRewards.gameObject.SetActive(true);
         Heart = 0;
         TextHeart.gameObject.SetActive(false);
@@ -368,11 +369,11 @@ public class SpawnEnemies : MonoBehaviour
         EnemiesHaveBullet = false;
         Random rnd = new Random();
         float Timeshot = 2f;
-        if (Timeshot - Level * 0.01f > 0)
+        if (Timeshot - 0.02f > 0)
         {
-            Timeshot -= Level * 0.01f;
+            Timeshot -= 0.02f;
         }
-        yield return new WaitForSeconds(Timeshot + rnd.Next(0, 11) / (Level + 10.0f));
+        yield return new WaitForSeconds(Timeshot + rnd.Next(0, 11) / (Level / 2.0f + 10.0f));
         int ind = GetIndexEnemies();
         Vector3 enemyPos = Enemies[ind].transform.position;
         Vector3 spawnPos = new Vector3(enemyPos.x, enemyPos.y - 0.3f, enemyPos.z);

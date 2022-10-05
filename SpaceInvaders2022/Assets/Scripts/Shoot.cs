@@ -9,7 +9,7 @@ using Vector3 = UnityEngine.Vector3;
 public class Shoot : MonoBehaviour
 {
     public GameObject bullet;
-    public float TimeShoot = 0.2f;
+    public float TimeShoot = 0.3f;
     public bool HaveBullet = true;
     public GameObject MainCamera;
     public bool ShootButtonEnter = false;
@@ -51,7 +51,7 @@ public class Shoot : MonoBehaviour
         Vector3 playerPos = transform.position;
         Vector3 spawnPos = new Vector3(playerPos.x, playerPos.y + 0.4f, playerPos.z);
         Instantiate(bullet, spawnPos, transform.rotation);
-        yield return new WaitForSeconds(TimeShoot + TimeShoot / (TimeShoot + SpawnEnemies.Level / 10.0f) / 10.0f);
+        yield return new WaitForSeconds(TimeShoot + TimeShoot / 10.0f / (TimeShoot + SpawnEnemies.Level / 20.0f) / 10.0f);
         HaveBullet = true;
     }
 }
