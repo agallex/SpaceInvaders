@@ -1,35 +1,31 @@
 # SpaceInvaders
 Сделал игрушку на Юнити.
 
-На ветке ForIOS находится проект Юнити для IOS устройств.
+На ветке UnityProject находится проект Юнити для IOS и Android устройств и установочный файл .apk. [Ссылка на скачивание .apk.](https://github.com/agallex/SpaceInvaders/blob/UnityProject/SpaceInvaders.apk)
 
-На ветке ForAndroid находится проект Юнити для Android устройств и установочный файл .apk. [Ссылка на скачивание .apk.](https://github.com/agallex/SpaceInvaders/blob/UnityProject/SpaceInvaders.apk)
-
-Можете склонировать репозиторий и открыть проект в Юнити.
+Можете склонировать репозиторий и открыть проект в Юнити. Не забудьте скачать и установить пакеты [Ссылка на скачивание пакетов.] (https://firebase.google.com/download/unity?authuser=0&hl=en) Установите пакеты .Auth и .Database.
 
 Управление:
 В редакторе Юнити можете двигаться вправо-влево с помощью кнопок A и D или стрелочек, стрелять на пробел (было сделано для удобства тестирования).
 Можно сбилдить проект с помощью Xcode, и поиграть на телефоне. Там управление только сенсорными кнопками.
 Делитесь своими рекордами)))
 
-Screenshots: Gameplay/Pause/Menu/StartGame.
+Screenshots: Gameplay/Leaderboard/Menu/Registration.
 
 <div align="center">
 <img src="PhotosFromTheGame/gameplay.PNG" height="400">
-<img src="PhotosFromTheGame/pause.PNG" height="400">
+<img src="PhotosFromTheGame/leaderboard.PNG" height="400">
 <img src="PhotosFromTheGame/menu.PNG" height="400">
-<img src="PhotosFromTheGame/startgame.PNG" height="400">
+<img src="PhotosFromTheGame/registration.PNG" height="400">
 </div>
 
-I made a game on Unity.
+I made a toy on Unity.
 
-There is a Unity project for iOS devices on the ForiOS branch.
+The UnityProject branch contains the Unity project for iOS and Android devices and the .apk installation file. [[Download link .apk.](https://github.com/ag alex/Space Invaders/blob/Unity Project/Space Invaders.apk)
 
-There is a Unity project for Android devices and the .apk installation file on the ForAndroid branch.
+You can clone the repository and open the project in Unity. Don't forget to download and install packages [Link to download packages.] (https://firebase.google.com/download/unity?authuser=0&hl=en) Install the packages .Auth and .Database.
 
-You can clone the repository and open the project in Unity.
-
-Control:
-In the Unity editor, you can move right and left using the A and D buttons or arrows, shoot at the space bar (it was done for the convenience of testing).
+Management:
+In the Unity editor, you can move right and left using the A and D buttons or arrows, shoot at the space bar (this was done for the convenience of testing).
 You can build a project using Xcode, and play on your phone. There is control only by touch buttons.
 Share your records)))
