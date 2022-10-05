@@ -7,7 +7,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using Firebase.Database;
 using JetBrains.Annotations;
-using UnityEditorInternal;
 using Firebase.Auth;
 
 public class Database : MonoBehaviour
