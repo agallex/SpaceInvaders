@@ -1,7 +1,7 @@
 # SpaceInvaders
 Сделал игрушку на Юнити с таблицей рекордов.
 
-На ветке UnityProject находится проект Юнити для IOS и Android устройств и установочный файл .apk. [Ссылка на скачивание .apk.](https://github.com/agallex/SpaceInvaders/blob/UnityProject/SpaceInvaders.apk)
+Здесь вы найдете проект Юнити для IOS и Android устройств и установочный файл .apk. [Ссылка на скачивание .apk.](https://github.com/agallex/SpaceInvaders/blob/UnityProject/SpaceInvaders.apk)
 
 Можете склонировать репозиторий и открыть проект в Юнити. Не забудьте скачать и установить пакеты. Ссылка на скачивание пакетов: https://firebase.google.com/download/unity?authuser=0&hl=en. Установите пакеты .Auth и .Database.
 
@@ -21,7 +21,7 @@ Screenshots: Gameplay/Leaderboard/Menu/Registration.
 
 I made a game on Unity with a table of records.
 
-The UnityProject branch contains the Unity project for iOS and Android devices and the .apk installation file. [Download link .apk.](https://github.com/agalex/SpaceInvaders/blob/UnityProject/SpaceInvaders.apk)
+Here you will find the Unity project for iOS and Android devices and the .apk installation file. [Download link .apk.](https://github.com/agalex/SpaceInvaders/blob/UnityProject/SpaceInvaders.apk)
 
 You can clone the repository and open the project in Unity. Don't forget to download and install packages. Link to download packages: https://firebase.google.com/download/unity?authuser=0&hl=en. Install the packages .Auth and .Database.
 
