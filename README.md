@@ -1,7 +1,7 @@
 # SpaceInvaders
 Сделал игрушку на Юнити с таблицей рекордов.
 
-Здесь вы найдете проект Юнити для IOS и Android устройств и установочный файл .apk. [Ссылка на скачивание .apk.](https://github.com/agallex/SpaceInvaders/blob/UnityProject/SpaceInvaders.apk)
+Здесь вы найдете проект Юнити для IOS и Android устройств и установочный файл .apk. [Ссылка на скачивание .apk.](https://github.com/agallex/SpaceInvaders/blob/main/SpaceInvaders.apk)
 
 Можете склонировать репозиторий и открыть проект в Юнити. Не забудьте скачать и установить пакеты. Ссылка на скачивание пакетов: https://firebase.google.com/download/unity?authuser=0&hl=en. Установите пакеты .Auth и .Database.
 
