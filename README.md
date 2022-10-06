@@ -21,7 +21,7 @@ Screenshots: Gameplay/Leaderboard/Menu/Registration.
 
 I made a game on Unity with a table of records.
 
-The UnityProject branch contains the Unity project for iOS and Android devices and the .apk installation file. [Download link .apk.](https://github.com/ag alex/Space Invaders/blob/Unity Project/Space Invaders.apk)
+The UnityProject branch contains the Unity project for iOS and Android devices and the .apk installation file. [Download link .apk.](https://github.com/agalex/SpaceInvaders/blob/UnityProject/Space Invaders.apk)
 
 You can clone the repository and open the project in Unity. Don't forget to download and install packages. Link to download packages: https://firebase.google.com/download/unity?authuser=0&hl=en. Install the packages .Auth and .Database.
 
