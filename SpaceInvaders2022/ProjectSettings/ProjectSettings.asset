@@ -155,6 +155,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
+    Android: com.AgallexPlay.SpaceInvaders
     Standalone: com.DefaultCompany.2DProject
     iPhone: com.AgallexPlay.SpaceInvaders
   buildNumber:
