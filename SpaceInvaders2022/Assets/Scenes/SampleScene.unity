@@ -6187,7 +6187,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7430326217313825496, guid: ef8b43ca5a516475f9a8f270328d5c74, type: 3}
       propertyPath: speedSheep
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7430326217313825498, guid: ef8b43ca5a516475f9a8f270328d5c74, type: 3}
       propertyPath: m_RootOrder
@@ -6235,7 +6235,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7430326217313825500, guid: ef8b43ca5a516475f9a8f270328d5c74, type: 3}
       propertyPath: TimeShoot
-      value: 0.3
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 7430326217313825500, guid: ef8b43ca5a516475f9a8f270328d5c74, type: 3}
       propertyPath: MainCamera

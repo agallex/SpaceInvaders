@@ -114,3 +114,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75b7a50f8b9a04ca8b41c956bee84818, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HeartBonus: {fileID: 5745193744884831361, guid: aae16b1a8eeea44e2877477365c406a9, type: 3}
+  ShootBonus: {fileID: 3003300919686739237, guid: fddf0b174dd2e4a69acb62cc12c99542, type: 3}
+  SpeedBonus: {fileID: 2438740994985485006, guid: 2a9695fb75a7a438189ef11988b87cd2, type: 3}

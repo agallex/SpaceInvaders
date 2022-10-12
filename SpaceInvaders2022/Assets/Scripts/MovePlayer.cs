@@ -1,12 +1,14 @@
+using System.Collections;
 using UnityEngine;
 
 public class MovePlayer : MonoBehaviour
 {
-    public int speedSheep = 8;
+    public int speedSheep = 6;
     private readonly float _maxX = 2f;
     public bool left = false;
     public bool right = false;
-
+    public Coroutine speedMove;
+    
     public void LeftButtonUp()
     {
         left = false;
@@ -32,6 +34,16 @@ public class MovePlayer : MonoBehaviour
         {
             float horizontal = Input.GetAxis("Horizontal") * speedSheep * Time.deltaTime;
             float posX = transform.position.x;
+            
+            if (SpeedBonus.GetSpeedBonus)
+            {
+                SpeedBonus.GetSpeedBonus = false;
+                if (speedMove != null)
+                {
+                    StopCoroutine(speedMove);
+                }
+                speedMove = StartCoroutine(UpSpeedMove());
+            }
             
             if (right)
             {
@@ -77,4 +89,11 @@ public class MovePlayer : MonoBehaviour
             }
         }
     }
+    IEnumerator UpSpeedMove()
+    {
+        speedSheep = 12;
+        yield return new WaitForSeconds(5f);
+        speedSheep = 6;
+    }
+    
 }
