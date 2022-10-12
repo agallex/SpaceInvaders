@@ -84,7 +84,7 @@ public class Database : MonoBehaviour
         SuccessfulRegistration.gameObject.SetActive(false);
         NameAlreadyExist.gameObject.SetActive(false);
         IncorrectLoginOrPassword.gameObject.SetActive(false);
-        if (countRegistrations < 100)
+        if (countRegistrations < 5)
         {
             if (GetComponent<EnterNameAndPassword>().CorrectСharactersFlag &&
                 !GetComponent<EnterNameAndPassword>().ShortPassword)

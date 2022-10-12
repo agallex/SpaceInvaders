@@ -262,14 +262,20 @@ public class SpawnEnemies : MonoBehaviour
             }
         }
         GameObject[] playerBullets = GameObject.FindGameObjectsWithTag("PlayerBullet");
-        for (int i = 0; i < playerBullets.Length; ++i)
+        foreach (var elem in playerBullets)
         {
-            Destroy(playerBullets[i]);
+            Destroy(elem);
         }
+        
         GameObject[] enemyBullets = GameObject.FindGameObjectsWithTag("EnemyBullet");
-        for (int i = 0; i < enemyBullets.Length; ++i)
+        foreach (var elem in enemyBullets)
         {
-            Destroy(enemyBullets[i]);
+            Destroy(elem);
+        }
+        GameObject[] heartBonus = GameObject.FindGameObjectsWithTag("PlayerBonus");
+        foreach (var elem in heartBonus)
+        {
+            Destroy(elem);
         }
         Level = 0;
         Score = 0;
@@ -291,6 +297,10 @@ public class SpawnEnemies : MonoBehaviour
         Player.GetComponent<MovePlayer>().left = false;
         Player.GetComponent<MovePlayer>().right = false;
         Player.GetComponent<Shoot>().ShootButtonEnter = false;
+        Player.GetComponent<Shoot>().TimeShoot = 0.3f;
+        ShootBonus.GetShootBonus = false;
+        Player.GetComponent<MovePlayer>().speedSheep = 8;
+        SpeedBonus.GetSpeedBonus = false;
         if (MainCamera.GetComponent<Music>().MusicIsPlay)
         {
             MainCamera.GetComponent<Music>().buttonOnVolume.gameObject.SetActive(true);

@@ -9,10 +9,11 @@ using Vector3 = UnityEngine.Vector3;
 public class Shoot : MonoBehaviour
 {
     public GameObject bullet;
-    public float TimeShoot = 0.3f;
+    public float TimeShoot = 0.4f;
     public bool HaveBullet = true;
     public GameObject MainCamera;
     public bool ShootButtonEnter = false;
+    public Coroutine speedShoot;
     public void ShootButtonDown()
     {
         ShootButtonEnter = true;
@@ -43,8 +44,25 @@ public class Shoot : MonoBehaviour
             }
             StartCoroutine(Shooting());
         }
-    }
 
+        if (ShootBonus.GetShootBonus)
+        {
+            ShootBonus.GetShootBonus = false;
+            if (speedShoot != null)
+            {
+                StopCoroutine(speedShoot);
+            }
+            speedShoot = StartCoroutine(UpSpeedShoot());
+        }
+    }
+    
+    IEnumerator UpSpeedShoot()
+    {
+        TimeShoot = 0.2f;
+        yield return new WaitForSeconds(5f);
+        TimeShoot = 0.4f;
+    }
+    
     IEnumerator Shooting()
     {
         HaveBullet = false;
